@@ -1,0 +1,47 @@
+$borderColorError: red;
+$errorBG: darkred;
+
+$borderColorInfo: blue;
+$infoBG: lightblue;
+
+$borderColorSuccess: green;
+$successBG: lightgreen;
+
+$borderColorGrey: grey;
+$greyBG: lightgrey;
+
+$borderColorPrimary: navy;
+$primaryBG: lightblue;
+
+
+@mixin alert($name, $bordercolor, $bgcolor, $color) {
+  .#{$name} {
+    border: 2px dotted $bordercolor;
+    background-color: $bgcolor;
+    color: $color;
+
+    .alert-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .tittle {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    p {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+}
+
+@include alert("alert-danger", $borderColorError, $errorBG, red);
+@include alert("alert-info", $borderColorInfo, $infoBG, blue);
+@include alert("alert-success", $borderColorSuccess, $successBG, green);
+@include alert("alert-grey", $borderColorGrey, $greyBG, grey);
+@include alert("alert-primary", $borderColorPrimary, $primaryBG, rgb(86, 86, 222));
